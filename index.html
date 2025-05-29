@@ -1,41 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Espaço Dâmaris</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"/>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espaço Dâmaris - Organização que Encanta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a78bfa; /* Purple-500 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b5cf6; /* Purple-600 */
+        }
+        /* Smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Basic animation for the message box */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-    <header id="navBar" class="container-fluid text-center">
+    <header class="sticky top-0 z-50 bg-white shadow-md py-4">
+        <nav class="container mx-auto flex justify-between items-center px-4 relative">
+            <a href="#hero" class="text-3xl font-bold text-purple-700 hover:text-purple-900 transition duration-300 ease-in-out">Espaço Dâmaris</a>
 
-        <nav class="row navBar">
+            <div class="hidden md:flex flex-row gap-x-6 text-lg font-medium">
+                <a href="#about" class="text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Sobre Nós</a>
+                <a href="#services" class="text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Serviços</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Depoimentos</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Contato</a>
+            </div>
 
-            <div class="col-auto px-3"><a href="">Sobre Nós</a></div>
-            <div class="col-auto px-3"><a href="">Produtos</a></div>
-            <div class="col-auto px-3"><a href="">Contato</a></div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-md p-2">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
 
+            <div id="mobile-dropdown-content" class="absolute top-full right-4 mt-2 bg-white shadow-lg rounded-md p-4 space-y-2 hidden md:hidden z-40">
+                <a href="#about" class="block text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Sobre Nós</a>
+                <a href="#services" class="block text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Serviços</a>
+                <a href="#testimonials" class="block text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Depoimentos</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 transition duration-300 ease-in-out px-3 py-1 rounded-md">Contato</a>
+            </div>
         </nav>
-
     </header>
 
-    <main id="mainContainer" class="container-fluid">
+    <main>
+        <section id="hero" class="relative bg-gradient-to-r from-purple-600 to-indigo-700 text-white min-h-screen flex items-center justify-center p-4 overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                    <pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <circle cx="5" cy="5" r="1" fill="white" />
+                    </pattern>
+                    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+                </svg>
+            </div>
 
-        <div id="main" class="row">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left z-10">
+                <div class="md:w-1/2 p-6 md:p-8 lg:p-12 animate-fade-in-left">
+                    <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                        Organização que Transforma, Mimos que Conectam.
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 font-light max-w-2xl mx-auto md:mx-0">
+                        Fidelize seus clientes com mimos personalizados e uma organização impecável. Eles vão amar sempre carregar sua marca com eles!
+                    </p>
+                    <a href="#contact" class="inline-block bg-white text-purple-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-100 hover:scale-105 transition duration-300 ease-in-out transform">
+                        Solicite um Orçamento
+                    </a>
+                </div>
 
-            <div class="col-md-4"><img src="../_imgs/Logo.svg" id="logo" alt="Logo"></div>
-            <div id="merchan" class="col-md-4"><p>Fidelize seus clientes com mimos personalizados. Eles vão amar sempre carregar sua marca com eles!</p></div>
+                <div class="md:w-1/2 p-6 md:p-8 lg:p-12 flex justify-center items-center animate-fade-in-right">
+                    <img src="/_imgs/Dâmaris.png" alt="Illustration of organized items and branding" class="w-full max-w-md rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
+                </div>
+            </div>
+        </section>
 
-        </div>
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Sobre o Espaço Dâmaris</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 text-lg leading-relaxed text-gray-700 animate-fade-in-up">
+                        <p class="mb-6">
+                            No <strong>Espaço Dâmaris</strong>, acreditamos que a organização vai além de arrumar objetos; ela transforma ambientes, otimiza o tempo e eleva a percepção de valor da sua marca. Somos especialistas em criar soluções personalizadas que não só organizam, mas também encantam.
+                        </p>
+                        <p class="mb-6">
+                            Com um olhar atento aos detalhes e uma paixão por ambientes funcionais e esteticamente agradáveis, oferecemos serviços de organização residencial e comercial, além de desenvolver mimos corporativos únicos que fortalecem o relacionamento com seus clientes.
+                        </p>
+                        <p>
+                            Nossa missão é trazer praticidade, beleza e um toque especial para o seu dia a dia e para a sua empresa, garantindo que sua marca seja sempre lembrada com carinho e eficiência.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center animate-fade-in-up delay-200">
+                        <img src="/_imgs/Design sem nome (3).png" alt="Professional organization tools" class="w-full max-w-md rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="services" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Nossos Serviços e Produtos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up">
+                        <i class="fas fa-home text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Organização Residencial</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Transformamos lares em espaços funcionais e harmoniosos, otimizando cada canto para o seu bem-estar.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-100">
+                        <i class="fas fa-briefcase text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Organização Comercial</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Melhore a produtividade e a imagem da sua empresa com ambientes de trabalho organizados e eficientes.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-200">
+                        <i class="fas fa-gift text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mimos Personalizados</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Crie laços duradouros com seus clientes através de brindes e mimos exclusivos com a sua marca.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-300">
+                        <i class="fas fa-box-open text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Embalagens Criativas</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Desenvolvemos embalagens que agregam valor e destacam seus produtos no mercado.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-400">
+                        <i class="fas fa-palette text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Design de Interiores</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Projetos que unem funcionalidade e estética, criando ambientes que refletem sua personalidade.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-500">
+                        <i class="fas fa-lightbulb text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Consultoria Personalizada</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Orientação especializada para otimizar seus espaços e processos de organização.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">O Que Nossos Clientes Dizem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-purple-50 rounded-lg shadow-md p-8 relative transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up">
+                        <i class="fas fa-quote-left text-purple-300 text-5xl absolute top-4 left-4 opacity-75"></i>
+                        <p class="text-gray-700 text-lg italic mb-6 pt-8">
+                            "O trabalho do Espaço Dâmaris superou todas as minhas expectativas! Minha casa está mais funcional e bonita. Recomendo de olhos fechados!"
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/60x60/a78bfa/ffffff?text=JD" alt="Client Avatar" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-400">
+                            <div>
+                                <p class="font-semibold text-gray-900">Juliana D.</p>
+                                <p class="text-sm text-gray-600">Cliente Residencial</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg shadow-md p-8 relative transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-100">
+                        <i class="fas fa-quote-left text-purple-300 text-5xl absolute top-4 left-4 opacity-75"></i>
+                        <p class="text-gray-700 text-lg italic mb-6 pt-8">
+                            "Os mimos personalizados que o Espaço Dâmaris criou para nossa empresa foram um sucesso! Nossos clientes amaram e a marca ficou muito mais presente."
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/60x60/8b5cf6/ffffff?text=MR" alt="Client Avatar" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-400">
+                            <div>
+                                <p class="font-semibold text-gray-900">Marcos R.</p>
+                                <p class="text-sm text-gray-600">Empresário</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg shadow-md p-8 relative transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-200">
+                        <i class="fas fa-quote-left text-purple-300 text-5xl absolute top-4 left-4 opacity-75"></i>
+                        <p class="text-700 text-lg italic mb-6 pt-8">
+                            "A organização do meu escritório mudou completamente a minha rotina. Mais foco, menos estresse. Gratidão ao Espaço Dâmaris!"
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/60x60/6d28d9/ffffff?text=AP" alt="Client Avatar" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-400">
+                            <div>
+                                <p class="font-semibold text-gray-900">Ana P.</p>
+                                <p class="text-sm text-gray-600">Profissional Liberal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-purple-700 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para Transformar Seus Espaços e Conectar com Seus Clientes?</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Entre em contato conosco e descubra como o Espaço Dâmaris pode ajudar você e sua empresa a alcançar um novo nível de organização e fidelização.
+                </p>
+                <a href="#contact" class="inline-block bg-white text-purple-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-100 hover:scale-105 transition duration-300 ease-in-out transform">
+                        Solicite um Orçamento
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Entre em Contato</h2>
+                <div class="flex flex-col md:flex-row gap-12 justify-center items-start">
+                    <div class="md:w-1/2 bg-white rounded-lg shadow-lg p-8 animate-fade-in-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informações de Contato</h3>
+                        <ul class="space-y-4 text-lg text-gray-700">
+                            <li><i class="fas fa-phone-alt text-purple-600 mr-3"></i>+55 31 99195-2216</li>
+                            <li><i class="fas fa-envelope text-purple-600 mr-3"></i> contato@espacodamaris.com.br</li>
+                            <li><i class="fas fa-map-marker-alt text-purple-600 mr-3"></i> Rua da Organização, 123, Cidade - Estado</li>
+                            <li><i class="fas fa-clock text-purple-600 mr-3"></i> Seg - Sex: 9h - 18h</li>
+                        </ul>
+                        <div class="mt-8">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-4">Siga-nos nas Redes Sociais</h4>
+                            <div class="flex space-x-6">
+                                <a href="#" class="text-purple-600 hover:text-purple-800 transition duration-300 ease-in-out text-3xl"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-purple-600 hover:text-purple-800 transition duration-300 ease-in-out text-3xl"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="text-purple-600 hover:text-purple-800 transition duration-300 ease-in-out text-3xl"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 bg-white rounded-lg shadow-lg p-8 animate-fade-in-right">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Envie-nos uma Mensagem</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition duration-200" placeholder="Seu nome" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition duration-200" placeholder="seu.email@exemplo.com" required>
+                            </div>
+                            <div>
+                                <label for="whatsapp" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition duration-200" placeholder="(XX) XXXXX-XXXX" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition duration-200" placeholder="Sua mensagem..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-700 text-white font-bold py-3 px-6 rounded-md shadow-lg hover:bg-purple-800 hover:scale-105 transition duration-300 ease-in-out transform">
+                                Enviar Mensagem
+                            </button>
+                            <div id="formMessage" class="hidden mt-4 p-3 rounded-md text-sm text-center bg-purple-100 text-purple-800 border border-purple-300"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2025 Espaço Dâmaris. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out"><i class="fab fa-facebook-f text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out"><i class="fab fa-linkedin-in text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-left { animation: fadeInLeft 1s ease-out forwards; }
+        .animate-fade-in-right { animation: fadeInRight 1s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       // SEU Public Key (User ID) do EmailJS
+       (function() {
+          emailjs.init("ctPSw1a-ucwvQBXUB");
+       })();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileDropdownContent = document.getElementById('mobile-dropdown-content'); // Renamed from mobileMenu
+
+            // Toggle mobile menu visibility
+            if (mobileMenuButton && mobileDropdownContent) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileDropdownContent.classList.toggle('hidden');
+                    mobileDropdownContent.classList.toggle('block'); // Use 'block' to display as a stacked dropdown
+                });
+
+                // Close mobile menu when a link is clicked (for smooth scrolling)
+                mobileDropdownContent.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileDropdownContent.classList.add('hidden');
+                        mobileDropdownContent.classList.remove('block');
+                    });
+                });
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const whatsapp = document.getElementById('whatsapp').value;
+                    const message = document.getElementById('message').value;
+
+                    // Parameters for your EmailJS template (names MUST match template placeholders like {{name}})
+                    const templateParams = {
+                        name: name,
+                        email: email,
+                        whatsapp: whatsapp,
+                        message: message
+                    };
+
+                    // SEUS Service ID e Template ID do EmailJS
+                    const serviceID = "service_x0t5l8f";
+                    const templateID = "template_wqkb2bn";
+
+                    // Display loading/sending message
+                    formMessage.textContent = 'Enviando mensagem...';
+                    formMessage.classList.remove('hidden', 'bg-purple-100', 'text-purple-800', 'border-purple-300', 'bg-red-100', 'text-red-800', 'border-red-300', 'bg-green-100'); // Remove previous states
+                    formMessage.classList.add('bg-blue-100', 'text-blue-800', 'border-blue-300', 'fade-in');
+
+
+                    emailjs.send(serviceID, templateID, templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            formMessage.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+                            formMessage.classList.remove('bg-blue-100', 'text-blue-800', 'border-blue-300'); // Remove sending state
+                            formMessage.classList.add('bg-green-100', 'text-green-800', 'border-green-300'); // Add success state
+                            contactForm.reset(); // Clear the form
+                            setTimeout(() => {
+                                formMessage.classList.add('hidden');
+                                formMessage.classList.remove('fade-in', 'bg-green-100', 'text-green-800', 'border-green-300'); // Clean up after hiding
+                            }, 5000); // Hide message after 5 seconds
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            formMessage.textContent = 'Erro ao enviar a mensagem. Por favor, tente novamente.';
+                            formMessage.classList.remove('bg-blue-100', 'text-blue-800', 'border-blue-300'); // Remove sending state
+                            formMessage.classList.add('bg-red-100', 'text-red-800', 'border-red-300'); // Add error state
+                            setTimeout(() => {
+                                formMessage.classList.add('hidden');
+                                formMessage.classList.remove('fade-in', 'bg-red-100', 'text-red-800', 'border-red-300'); // Clean up after hiding
+                            }, 5000); // Hide message after 5 seconds
+                        });
+                });
+            }
+        });
+    </script>
+</body>
 </html>
