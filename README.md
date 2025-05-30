@@ -63,8 +63,6 @@ No arquivo `index.html`, localize os seguintes trechos de código e substitua os
 </script>
 ```
 
-**Substitua**: `ctPSw1a-ucwvQBXUB` pelo seu **Public Key (User ID)**.
-
 #### Service ID e Template ID - Função de Envio do Formulário:
 
 ```js
